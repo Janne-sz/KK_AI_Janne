@@ -6,8 +6,14 @@ from scipy import ndimage
 from streamlit_drawable_canvas import st_canvas
 
 
-MODEL_PATH = "mnist_tuned_cnn.keras"
+# MODEL_PATH = "mnist_tuned_cnn.keras" # För lokal tester
+# MODEL_PATH = "streamlit-digit-demo-deploy/mnist_tuned_cnn.keras" # Från streamlit-foldern i github
 
+import os
+
+# Hitta mappen där app.py ligger
+current_dir = os.path.dirname(__file__)
+MODEL_PATH = os.path.join(current_dir, "mnist_tuned_cnn.keras")
 
 @st.cache_resource
 def load_digit_model():
