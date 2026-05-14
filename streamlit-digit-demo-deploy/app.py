@@ -66,6 +66,7 @@ def reset_prediction():
     st.session_state.canvas_version += 1
     st.session_state.predicted_digit = None
     st.session_state.confidence = None
+    st.session_state.class_confidences = None
     st.session_state.preview_image = None
 
 
@@ -123,6 +124,23 @@ st.markdown(
     div[data-testid="stMetric"] {
         text-align: center;
     }
+
+    .confidence-table {
+        border-collapse: collapse;
+        margin: 0;
+        width: 100%;
+    }
+
+    .confidence-table th,
+    .confidence-table td {
+        border: 1px solid #d6d6d6;
+        padding: 0.25rem 0.45rem;
+        text-align: right;
+    }
+
+    .confidence-table th {
+        font-weight: 700;
+    }
     </style>
     """,
     unsafe_allow_html=True,
@@ -134,6 +152,8 @@ if "predicted_digit" not in st.session_state:
     st.session_state.predicted_digit = None
 if "confidence" not in st.session_state:
     st.session_state.confidence = None
+if "class_confidences" not in st.session_state:
+    st.session_state.class_confidences = None
 if "preview_image" not in st.session_state:
     st.session_state.preview_image = None
 
@@ -176,6 +196,7 @@ if not has_result:
             prediction = model.predict(model_input, verbose=0)[0]
             st.session_state.predicted_digit = int(np.argmax(prediction))
             st.session_state.confidence = float(np.max(prediction))
+            st.session_state.class_confidences = prediction.tolist()
             st.session_state.preview_image = preview_image
             st.rerun()
 
@@ -191,3 +212,22 @@ else:
     with st.expander("Visa preprocessad 28x28-bild"):
         st.image(st.session_state.preview_image, width=140, clamp=True)
 
+    with st.expander("Visa alla konfidensv\u00e4rden"):
+        visible_confidences = [
+            (digit, confidence)
+            for digit, confidence in enumerate(st.session_state.class_confidences)
+            if round(confidence, 2) > 0
+        ]
+        visible_confidences.sort(key=lambda item: item[1], reverse=True)
+
+        table_rows = [
+            "<table class=\"confidence-table\">",
+            "<thead><tr><th>Prediktion</th><th>Konfidens</th></tr></thead>",
+            "<tbody>",
+        ]
+        table_rows.extend(
+            f"<tr><td>{digit}</td><td>{confidence:.2f}</td></tr>"
+            for digit, confidence in visible_confidences
+        )
+        table_rows.extend(["</tbody>", "</table>"])
+        st.markdown("".join(table_rows), unsafe_allow_html=True)
