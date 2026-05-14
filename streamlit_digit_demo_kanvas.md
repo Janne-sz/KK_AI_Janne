@@ -4,13 +4,13 @@ Syfte: lararen scannar en QR-kod, ritar en siffra 0-9 i mobilen, trycker Klar oc
 
 ## 1. Malbild
 
-- [ ] En publik webbsida finns tillganglig via URL.
-- [ ] URL:en finns som QR-kod.
-- [ ] Sidan fungerar i mobilwebblasare.
-- [ ] Anvandaren kan rita en siffra med fingret.
-- [ ] Anvandaren kan trycka pa Klar.
-- [ ] Appen visar predikterad siffra, t.ex. `4`.
-- [ ] Appen visar confidence/sakerhet, t.ex. `0.98`.
+- [x] En publik webbsida finns tillganglig via URL.
+- [x] URL:en finns som QR-kod.
+- [x] Sidan fungerar i mobilwebblasare.
+- [x] Anvandaren kan rita en siffra med fingret.
+- [x] Anvandaren kan trycka pa Klar.
+- [x] Appen visar predikterad siffra, t.ex. `4`.
+- [x] Appen visar confidence/sakerhet, t.ex. `0.98`.
 
 ## 2. Modell-export
 
@@ -67,54 +67,43 @@ Kommentar till redovisning: MNIST-bilder ar 28x28 graskalebilder. Ursprungliga s
 
 ## 5. Lokal test
 
-- [ ] Installera dependencies lokalt.
-- [ ] Starta appen:
+- [x] Installera dependencies lokalt.
+- [x] Starta appen:
 
 ```bash
 streamlit run app.py
 ```
 
-- [ ] Testa i datorns webblasare.
-- [ ] Testa med olika siffror 0-9.
-- [ ] Testa fula/snabba mobil-liknande ritningar.
-- [ ] Justera preprocessing om modellen gissar systematiskt fel.
+- [x] Testa i datorns webblasare.
+- [x] Testa med olika siffror 0-9.
+- [x] Testa fula/snabba mobil-liknande ritningar.
+- [x] Justera preprocessing om modellen gissar systematiskt fel.
 
 ## 6. GitHub och deployment
 
-- [ ] Skapa GitHub-repo eller anvand befintligt repo.
-- [ ] Lagg in:
+- [x] Skapa GitHub-repo eller anvand befintligt repo.
+- [x] Lagg in:
   - [ ] `app.py`
   - [ ] `model.keras`
   - [ ] `requirements.txt`
   - [ ] eventuell `README.md`
-- [ ] Deploya pa Streamlit Community Cloud.
-- [ ] Valj repo, branch och `app.py`.
-- [ ] Spara den publika `streamlit.app`-URL:en.
+- [x] Deploya pa Streamlit Community Cloud.
+- [x] Valj repo, branch och `app.py`.
+- [x] Spara den publika `streamlit.app`-URL:en.
 
 ## 7. QR-kod
 
-- [ ] Skapa QR-kod som pekar pa Streamlit-URL:en.
-- [ ] Testa QR-koden med mobilen.
-- [ ] Kontrollera att appen fungerar over mobildata eller annat Wi-Fi.
-- [ ] Lagg QR-koden i inlamning, rapport eller enkel webbsida.
+- [x] Skapa QR-kod som pekar pa Streamlit-URL:en.
+- [x] Testa QR-koden med mobilen.
+- [x] Kontrollera att appen fungerar over mobildata eller annat Wi-Fi.
+- [x] Lagg QR-koden i inlamning, rapport eller enkel webbsida.
 
-## 8. Risker och backup-planer
+## 8. Definition of done
 
-- [ ] Om appen sover pa Streamlit Cloud: oppna URL:en och vack appen innan bedomning, eller skriv att den kan behova vakna.
-- [ ] Om TensorFlow/Keras blir for tungt: undersok TensorFlow Lite eller ONNX som alternativ.
-- [ ] Om modellen gissar fel pa mobilritade siffror: forbattra preprocessing eller lagg till exempel ritade via canvas som extra testdata.
-- [ ] Om Inleed inte kan kora Streamlit: anvand Inleed endast for eventuell informationssida/QR, inte for modellinferens.
-
-## 9. Kort forklaring till rapport/redovisning
-
-Demoappen ar en Streamlit-webbapp som kor en redan tranad CNN-modell. Anvandaren ritar en siffra i en canvas pa webbsidan. Bilden preprocessas till samma format som MNIST-data: graskala, 28x28 pixlar, centrerad siffra och normaliserade pixelvarden. Den preprocessade bilden skickas till modellen, som returnerar sannolikheter for klasserna 0-9. Appen visar klassen med hogst sannolikhet och modellens confidence.
-
-## 10. Definition of done
-
-- [ ] QR-koden gar att scanna.
-- [ ] Sidan oppnas pa mobil utan extra app.
-- [ ] Det gar att rita med fingret.
-- [ ] Klar-knappen ger prediktion.
-- [ ] Confidence visas.
+- [x] QR-koden gar att scanna.
+- [x] Sidan oppnas pa mobil utan extra app.
+- [x] Det gar att rita med fingret.
+- [x] Klar-knappen ger prediktion.
+- [x] Confidence visas.
 - [ ] Appen fungerar fran annan plats an din egen dator.
 - [ ] Du kan forklara appflodet schematiskt.
