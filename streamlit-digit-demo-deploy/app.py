@@ -1,4 +1,6 @@
-﻿import numpy as np
+﻿# App-byggande i python är över min python-kompetens så jag har tagit hjälp av Codex för felsökning, kodning och driftsättning i Streamlit
+
+import numpy as np
 import streamlit as st
 import tensorflow as tf
 from PIL import Image
