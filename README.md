@@ -5,10 +5,12 @@ Den preprocessade bilden skickas till modellen, som returnerar sannolikheter fö
 högst sannolikhet och modellens confidence. Som extrainfo kan man visa den processerade bilden som modellen predicerat samt 
 hela prediceringsvektorn
 
-2. Presentation och kunskapskontroll finns här: 
+2. Presentation och kunskapskontroll del 2 finns här: 
 https://docs.google.com/presentation/d/1ooQ23Jk8tY3-11HtyPySdOVDuRbu7SvkhUqvwmHvIMs/edit?usp=sharing
 
 3. Koden för att ta fram modellen finns här i github: Sifferigenkänning.ipynb
+
+4. Kunskapskontroll del 1 finns här: https://docs.google.com/document/d/1Uomh6ikHw4VYUDK2VyL6it_6iWl5Y59SaD0nRDaUIMo/edit?usp=sharing
 
 Mer kuriosa och kan hoppas över
 4. Det som rör appen och streamlit finns här i github i foldern streamlit-digit-demo-deploy
